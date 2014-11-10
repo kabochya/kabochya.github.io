@@ -10,14 +10,28 @@ layout: default
     {% for post in site.posts %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
+        <div class="post-excerpt">{{ post.excerpt | truncatewords: 30}}</div>
+        
+        <span class="post-category-list">
+          {% if post.categories.size == 1 %}
+            Category
+          {% else %}
+            Categories
+          {% endif %}
+          {% for category in post.categories %}
+            <a class="post-category">{{category}}</a>
+          {% endfor %}
+        </span>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a class="disqus-comment-count" href="{{ post.url | prepend: site.baseurl | append: '#disqus_thread'}}">Loading Comments...</a>
       </li>
+
     {% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
 
 </div>
