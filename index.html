@@ -26,7 +26,7 @@ layout: default
           {% endfor %}
         </span>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a class="disqus-comment-count" href="{{ post.url | prepend: site.baseurl | append: '#disqus_thread'}}">Loading Comments...</a>
+        <a class="disqus-comment-count" href="{{ post.url | append: '#disqus_thread'}}">Loading Comments...</a>
       </li>
 
     {% endfor %}
